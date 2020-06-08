@@ -1,0 +1,16 @@
+<div>
+<mat-card>
+<div class="mdc-layout-grid">
+  <label for="texto">Texto a ser processado:</label><br>
+  <textarea name="texto" class="input-field" id="texto" #texto rows="10" cols="100"></textarea>
+</div>
+<div>
+  <label for="processado">Resultado:</label><br>
+  <textarea name="processado" id="processado" #processado rows="10" cols="100"></textarea>
+</div>
+
+</mat-card>
+
+    <button mat-button (click)="contCaracteres(texto,processado)">contar</button>
+    <button mat-button (click)="imprimirColuna(texto,processado)">imprimir coluna</button>
+  </div>
