@@ -1,16 +1,30 @@
 <div>
-<mat-card>
 <div class="mdc-layout-grid">
-  <label for="texto">Texto a ser processado:</label><br>
-  <textarea name="texto" class="input-field" id="texto" #texto rows="10" cols="100"></textarea>
-</div>
-<div>
-  <label for="processado">Resultado:</label><br>
-  <textarea name="processado" id="processado" #processado rows="10" cols="100"></textarea>
-</div>
-
-</mat-card>
-
-    <button mat-button (click)="contCaracteres(texto,processado)">contar</button>
-    <button mat-button (click)="imprimirColuna(texto,processado)">imprimir coluna</button>
+  <div>
+    <button mat-button (click)="mostrar()" color="primary">contador de caracteres</button>
+    <button mat-button (click)="mostrar2()">seletor de coluna</button>
+    <button mat-button (click)="mostrar3()">expressão regular</button>
   </div>
+  <div *ngIf="show">
+    <button mat-button (click)="contCaracteres(texto,processado)">contar</button>
+  </div>
+  <div *ngIf="show2">
+  <label for="coluna">Digite a coluna que quer separar</label>
+  <input type="number" name="coluna" #coluna id="coluna">
+  <label for="separador">Digite o separador de coluna</label>
+  <input type="text" name="separador" maxlength="1" #separador id="separador">
+  <button mat-button (click)="imprimirColuna(texto,processado,coluna,separador)">imprimir coluna</button>
+  </div>
+  <div *ngIf="show3">
+    <label for="regex">Digite a expressão Regular</label>
+  <input type="text" name="regex" #regex id="regex">
+  <button mat-button (click)="aplicarRegex(texto,processado,regex)">Aplicar Regex</button>
+  </div>
+  <div>
+    <label for="texto">insira o texto aqui</label><br>
+    <textarea name="texto" class="input-field" id="texto" #texto rows="10" cols="100"></textarea><br>
+    <label for="processado">Resultado:</label><br>
+    <textarea name="processado" id="processado" #processado rows="10" cols="100"></textarea>
+  </div>
+</div>
+</div>
